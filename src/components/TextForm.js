@@ -16,6 +16,7 @@ export default function TextForm(props) {
   };
   
   const handleOnChange = (event) => {
+    
     // console.log("Onchange");
     setText(event.target.value);
   };
