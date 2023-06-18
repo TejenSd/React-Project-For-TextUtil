@@ -30,6 +30,12 @@ export default function TextForm(props) {
     text.select();
     navigator.clipboard.writeText(text.value);
   }
+
+  //Remove extra spaces on a button using regex(regular expression)
+  const handleExtraSpace = () => {
+    let newText = text.split(/[ ]+/);
+    setText(newText.join(" "))
+  }
   
   return (
     // <></> Its a JSX fragant and will return a single div or child 
@@ -42,6 +48,9 @@ export default function TextForm(props) {
         <button className="btn btn-primary my-1" onClick={handleUpClick}>Convert To Upper Case</button>
         <button className="btn btn-primary mx-1" onClick={handleLowerClick}>Convert To Lower Case</button>
         <button className="btn btn-primary mx-1" onClick={handleCopy}>Copy Text</button>
+        <button className="btn btn-primary mx-1" onClick={handleExtraSpace}>Remove Extra Space</button>
+
+
 
       </div>
       <div className="container my-3">
