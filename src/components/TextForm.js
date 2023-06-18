@@ -31,7 +31,7 @@ export default function TextForm(props) {
     navigator.clipboard.writeText(text.value);
   }
 
-  //Remove extra spaces on a button using regex(regular expression)
+  //Remove extra spaces on a button click using regex(regular expression)
   const handleExtraSpace = () => {
     let newText = text.split(/[ ]+/);
     setText(newText.join(" "))
