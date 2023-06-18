@@ -37,6 +37,12 @@ export default function TextForm(props) {
     setText(newText.join(" "))
   }
   
+  //Clear the text of text Area
+  const textClear = () => {
+    setText("");
+  }
+  
+
   return (
     // <></> Its a JSX fragant and will return a single div or child 
     <> 
@@ -49,6 +55,7 @@ export default function TextForm(props) {
         <button className="btn btn-primary mx-1" onClick={handleLowerClick}>Convert To Lower Case</button>
         <button className="btn btn-primary mx-1" onClick={handleCopy}>Copy Text</button>
         <button className="btn btn-primary mx-1" onClick={handleExtraSpace}>Remove Extra Space</button>
+        <button className="btn btn-primary mx-1" onClick={textClear}>Clear Text</button>
 
 
 
