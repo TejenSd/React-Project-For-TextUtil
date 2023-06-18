@@ -2,29 +2,37 @@ import React, { useState } from "react";
 
 export default function TextForm(props) {
   const [text, setText] = useState(" ");
-  
+ 
+  // Convert text to toUpperCase
   const handleUpClick = () => {
     
     let newText = text.toUpperCase();
     setText(newText);
     // console.log("Upper Case was clicked");
-    //Test Push
   };
 
+  // Convert Text to toLowerCase
   const handleLowerClick = () => {
     let newText = text.toLowerCase();
     setText(newText);
     // console.log("Upper Case was clicked");
-    //Test Push
   };
   
+  // Call on chnage for word count
   const handleOnChange = (event) => {
     // console.log("Onchange");
     setText(event.target.value);
   };
+
+  //Get the text copied from text Area
+  const handleCopy = () => {
+    var text = document.getElementById("myBox");
+    text.select();
+    navigator.clipboard.writeText(text.value);
+  }
   
   return (
-    // <></> IT IS JSX FRAGMENT
+    // <></> Its a JSX fragant and will return a single div or child 
     <> 
       <div className="container">
 
@@ -33,6 +41,7 @@ export default function TextForm(props) {
         <textarea className="form-control" id="myBox" value={text} onChange={handleOnChange} rows="4"></textarea>
         <button className="btn btn-primary my-1" onClick={handleUpClick}>Convert To Upper Case</button>
         <button className="btn btn-primary mx-1" onClick={handleLowerClick}>Convert To Lower Case</button>
+        <button className="btn btn-primary mx-1" onClick={handleCopy}>Copy Text</button>
 
       </div>
       <div className="container my-3">
