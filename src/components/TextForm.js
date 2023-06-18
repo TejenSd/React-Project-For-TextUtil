@@ -45,11 +45,13 @@ export default function TextForm(props) {
   return (
     // <></> Its a JSX fragant and will return a single div or child 
     <> 
-      <div className="container">
+      <div className="container" style={{color: props.mode==='dark'?'white':'black'}}>
 
         <h3>{props.heading}</h3>
-        <div className="mb-3"></div>
-        <textarea className="form-control" id="myBox" value={text} onChange={handleOnChange} rows="4"></textarea>
+        <div className="mb-3">
+        <textarea className="form-control" id="myBox" value={text} onChange={handleOnChange} style={{backgroundColor: props.mode==='dark'?'grey':'white',
+         color: props.mode==='dark'?'white':'black'}} rows="4"></textarea>
+        </div>
         <button className="btn btn-primary my-1" onClick={handleUpClick}>Convert To Upper Case</button>
         <button className="btn btn-primary mx-1" onClick={handleLowerClick}>Convert To Lower Case</button>
         <button className="btn btn-primary mx-1" onClick={handleCopy}>Copy Text</button>
@@ -59,13 +61,13 @@ export default function TextForm(props) {
 
 
       </div>
-      <div className="container my-3">
+      <div className="container my-3" style={{color: props.mode==='dark'?'white':'black'}}>
         <h3>Your Text Summay</h3>
         <p>{text.split(" ").length} words and {text.length} characters</p>
         <p>{0.008 * text.split(" ").length} minutes read</p>
         
         <h3>Text Preview</h3>
-        <p>{text}</p>
+        <p>{text.length>0?text:"Enter Your Text"}</p>
 
       </div>
     </>
